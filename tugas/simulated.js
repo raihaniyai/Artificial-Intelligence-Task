@@ -71,7 +71,7 @@ var self = {
     console.log("Line Bot Version: add @bxx4367b");
 
     console.log(Math.PI);
-
+  }
 }
 
 module.exports = self;
