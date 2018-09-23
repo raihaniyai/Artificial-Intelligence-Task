@@ -21,9 +21,9 @@ let cost = generateCost(eksSatu, eksDua); //Calling function generateCost
 while (suhuMin < suhuMaks) {
   var indeks = 1; // For iteration
   while (indeks <= iterasi) {
-    newCost = generateCost(newEksSatu, newEksDua);
     newEksSatu = generateRandom(10, -10); // Pick Random Number for Neighbor of x1
     newEksDua = generateRandom(10, -10); // Pick Random Number for Neighbor of x2
+    newCost = generateCost(newEksSatu, newEksDua);
     let acceptance = probabilitas(cost, newCost, suhuMaks);
     if (Math.random() < acceptance) { // If acceptance is not optimum, change the value
       cost = newCost;
@@ -36,7 +36,7 @@ while (suhuMin < suhuMaks) {
 }
 
 // Result For Line Bot, Comment if you Running this program via CLI
-return flexSimulated.hasil(userId, eksSatu.toString(), eksDua.toString(), cost.toString());
+// return flexSimulated.hasil(userId, eksSatu.toString(), eksDua.toString(), cost.toString());
 
 // Result Log for CLI version
 console.log("\nKonfigurasi\n");
@@ -56,11 +56,9 @@ console.log("\n--------------------------------------\n");
 
 // Change the value of FR if you wanna know how accurate this program
 console.log("Akurasi Hasil SA (Ganti nilai FR pada program)\n");
-var FR = -19.2085; // Change this value
+var FR = 0; // Change this value
 console.log("Akurasi\t\t: " + (1 - ((cost - FR)/FR)) * 100 + " %");
 
 console.log("\n--------------------------------------\n");
 
 console.log("Line Bot Version: add @bxx4367b");
-
-console.log(Math.PI);

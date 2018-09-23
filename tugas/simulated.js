@@ -4,7 +4,7 @@ const flexSimulated = require('./../flex/simulated.js');
 var self = {
   hasil: function (userId) {
     var client = bot.client;
-    // Kalau mau testing via CLI, copy baris 8 - 58 (comment baris 47)
+    // Kalau mau testing via CLI, copy baris 8 - 71 (comment baris 46)
     // Define Max Temperature, Min Temperature, Cooling Rate, Iteration and formula for Acceptance Probability
     const suhuMin = 0.000001; // Minimum Temperature
     let suhuMaks = 1.0; // Maximum Temperature
@@ -28,9 +28,9 @@ var self = {
     while (suhuMin < suhuMaks) {
       var indeks = 1; // For iteration
       while (indeks <= iterasi) {
-        newCost = generateCost(newEksSatu, newEksDua);
         newEksSatu = generateRandom(10, -10); // Pick Random Number for Neighbor of x1
         newEksDua = generateRandom(10, -10); // Pick Random Number for Neighbor of x2
+        newCost = generateCost(newEksSatu, newEksDua);
         let acceptance = probabilitas(cost, newCost, suhuMaks);
         if (Math.random() < acceptance) { // If acceptance is not optimum, change the value
           cost = newCost;
@@ -63,14 +63,12 @@ var self = {
 
     // Change the value of FR if you wanna know how accurate this program
     console.log("Akurasi Hasil SA (Ganti nilai FR pada program)\n");
-    var FR = -19.2085; // Change this value
+    var FR = 0; // Change this value
     console.log("Akurasi\t\t: " + (1 - ((cost - FR)/FR)) * 100 + " %");
 
     console.log("\n--------------------------------------\n");
 
     console.log("Line Bot Version: add @bxx4367b");
-
-    console.log(Math.PI);
   }
 }
 
