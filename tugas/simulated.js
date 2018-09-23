@@ -6,57 +6,72 @@ var self = {
     var client = bot.client;
     // Kalau mau testing via CLI, copy baris 8 - 58 (comment baris 47)
     // Define Max Temperature, Min Temperature, Cooling Rate, Iteration and formula for Acceptance Probability
-    let SuhuMax = 1.0; // Suhu Maksimum
-    let SuhuMin = 0.000001; // Suhu Minimum
-    let coolingRate = 0.99; // Cooling Rate
-    let iterasi = 17000; // Semakin besar iterasi maka semakin optimal pencarian nilai minimum
-    let acceptanceProbability = (cost, newCost, t) => Math.exp((cost - newCost)/t);
+    const suhuMin = 0.000001; // Minimum Temperature
+    let suhuMaks = 1.0; // Maximum Temperature
+    const maxTemp = suhuMaks; // Maximum Temperature for display
+    const coolingRate = 0.99; // Cooling Rate
+    const iterasi = 17000; // Semakin besar iterasi maka semakin optimal pencarian nilai minimum
+    let probabilitas = (cost, newCost, t) => Math.exp(-1 * (newCost - cost)/t); // Probability
 
     // Guess a number between -10 to 10 for x1 or x2 or neighbor
-    const randomOneNumber = (max, min) => Math.random() * (max-min) + min;
+    const generateRandom = (max, min) => Math.random() * (max-min) + min;
 
     // return function that defined in task 1
-    const hitungCost = (eksSatu, eksDua) => (
+    const generateCost = (eksSatu, eksDua) => (
       -1 * (Math.abs(Math.sin(eksSatu) * Math.cos(eksDua) * Math.exp(Math.abs(1 - ((Math.sqrt((eksSatu * eksSatu) + (eksDua * eksDua)))/Math.PI)))))
     );
 
-    let eksSatu = randomOneNumber(10, -10); // Nilai x1
-    let eksDua = randomOneNumber(10, -10); // Nilai x2
-
     var newEksSatu, newEksDua, newCost; // Generate new value for x1, x2, cost
-
-    let cost = hitungCost(eksSatu, eksDua); //Calling function hitungCost
-    while (SuhuMax > SuhuMin) {
-      var i = 1;
-      while (i <= iterasi) {
-        newEksSatu = randomOneNumber(10, -10);
-        newEksDua = randomOneNumber(10, -10);
-        newCost = hitungCost(newEksSatu, newEksDua);
-        let acceptance = acceptanceProbability(cost, newCost, SuhuMax);
-        if (acceptance > Math.random()) {
+    let eksSatu = generateRandom(10, -10); // Value of x1
+    let eksDua = generateRandom(10, -10); // Value of x2
+    let cost = generateCost(eksSatu, eksDua); //Calling function generateCost
+    while (suhuMin < suhuMaks) {
+      var indeks = 1; // For iteration
+      while (indeks <= iterasi) {
+        newCost = generateCost(newEksSatu, newEksDua);
+        newEksSatu = generateRandom(10, -10); // Pick Random Number for Neighbor of x1
+        newEksDua = generateRandom(10, -10); // Pick Random Number for Neighbor of x2
+        let acceptance = probabilitas(cost, newCost, suhuMaks);
+        if (Math.random() < acceptance) { // If acceptance is not optimum, change the value
           cost = newCost;
           eksSatu = newEksSatu;
           eksDua = newEksDua;
         }
-        i++;
+        indeks++; // Increment of indeks until iterasi
       }
-      SuhuMax = SuhuMax * coolingRate; // Current Temperature * Cooling Rate
+      suhuMaks = suhuMaks * coolingRate; // Current Temperature * Cooling Rate (Penurunan Suhu)
     }
 
     // Result For Line Bot, Comment if you Running this program via CLI
     return flexSimulated.hasil(userId, eksSatu.toString(), eksDua.toString(), cost.toString());
 
     // Result Log for CLI version
-    console.log("Hasil Simulated Annealing: \n");
-    console.log("x1: " + eksSatu);
-    console.log("x2: " + eksDua);
-    console.log("Cost: " + cost);
+    console.log("\nKonfigurasi\n");
+    console.log("Suhu Minimum\t: " + suhuMin);
+    console.log("Suhu Maksimum\t: " + maxTemp);
+    console.log("Cooling Rate\t: " + coolingRate);
+    console.log("Suhu Sekarang\t: " + suhuMaks);
 
-    // Change FR if you wanna know how accurate this program
-    console.log("\nAkurasi Hasil SA (Ganti nilai FR pada program)");
-    var FR = 0;
-    console.log("Akurasi: " + (1 - ((cost - FR)/FR)) * 100 + " %");
-  }
+    console.log("\n--------------------------------------\n");
+
+    console.log("Hasil Simulated Annealing\n");
+    console.log("x1\t\t: " + eksSatu);
+    console.log("x2\t\t: " + eksDua);
+    console.log("Cost\t\t: " + cost);
+
+    console.log("\n--------------------------------------\n");
+
+    // Change the value of FR if you wanna know how accurate this program
+    console.log("Akurasi Hasil SA (Ganti nilai FR pada program)\n");
+    var FR = -19.2085; // Change this value
+    console.log("Akurasi\t\t: " + (1 - ((cost - FR)/FR)) * 100 + " %");
+
+    console.log("\n--------------------------------------\n");
+
+    console.log("Line Bot Version: add @bxx4367b");
+
+    console.log(Math.PI);
+
 }
 
 module.exports = self;

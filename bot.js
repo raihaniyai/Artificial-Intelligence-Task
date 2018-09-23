@@ -71,15 +71,15 @@ function handleEvent(event) {
       },
       {
       "type": "text",
-      "text": `Akun Line ini khusus untuk Tugas AI Raihan Hamid Suraperwata (iyai) kelas IF-40-06.\n\nKalau kak ${profile.displayName} mau meriksa tugas aku, langsung pilih aja tugas mana yang mau diperiksa :D`
+      "text": `Akun Line ini khusus untuk Tugas AI Raihan Hamid Suraperwata (1301160466) kelas IF-40-06.\n\nKalau kak ${profile.displayName} mau meriksa tugas aku, langsung pilih aja tugas mana yang mau diperiksa :D`
       },
       {
         "type": 'template',
-        "altText": 'Buttons alt text',
+        "altText": 'Menu Tugas AI',
         "template": {
           "type": 'buttons',
           "title": 'Menu Tugas AI',
-          "text": 'Raihan Hamid Suraperwata\nIF-40-06',
+          "text": 'Raihan Hamid Suraperwata (1301160466)\nIF-40-06',
           "actions": [
             { "label": 'Tugas 1', "type": 'message', "text": '/tugas1' },
             { "label": 'Tugas 2', "type": 'message', "text": '/tugas2' },
@@ -134,7 +134,7 @@ function handleText(message, replyToken, source) {
         replyToken,
         {
           type: 'template',
-          altText: 'Buttons alt text',
+          altText: 'Menu Tugas AI',
           template: {
             type: 'buttons',
             title: 'Menu Tugas AI',
@@ -169,7 +169,7 @@ function handleText(message, replyToken, source) {
         },
         {
           type: 'template',
-          altText: 'Buttons alt text',
+          altText: 'Menu Tugas AI',
           template: {
             type: 'buttons',
             title: 'Menu Tugas AI',

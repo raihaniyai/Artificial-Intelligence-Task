@@ -86,12 +86,12 @@ var self = {
                     },
                     {
                       "type": "text",
-                      "text": "https://blablabla.com",
+                      "text": "Google Drive (Tugas AI)",
                       "wrap": true,
                       "action": {
                         "type": "uri",
-                        "label": "Tap me",
-                        "uri": "https://example.com"
+                        "label": "Laporan",
+                        "uri": "https://drive.google.com/drive/folders/1mEXtDogBosDpxpBLy5oha2y8WyOIVPHR?usp=sharing"
                       },
                       "color": "#338dff",
                       "size": "sm",
@@ -116,8 +116,8 @@ var self = {
                       "text": "github.com/raihaniyai",
                       "action": {
                         "type": "uri",
-                        "label": "Tap me",
-                        "uri": "https://example.com"
+                        "label": "Source Code",
+                        "uri": "https://github.com/raihaniyai/Artificial-Intelligence-Task"
                       },
                       "wrap": true,
                       "color": "#338dff",
@@ -175,12 +175,12 @@ var self = {
   hasil: function (userId, x1, x2, cost) {
     var client = bot.client;
     // Log kalau ada yang nyobain Simulated Annealing nya, push message ke akun owner (iyai)
-    // var client = bot.client;
-    // client.getProfile(userId).then((profile) => {
-    //   return client.pushMessage("U09d83d49fac35990146d381894d0d672", {
-    //     type: 'text',
-    //     text: `Dicobain sama ${profile.displayName}\n\nHasil:\nx1: ${x1}\nx2: ${x2}\ncost: ${cost}`});
-    // });
+    var client = bot.client;
+    client.getProfile(userId).then((profile) => {
+      return client.pushMessage("U09d83d49fac35990146d381894d0d672", {
+        type: 'text',
+        text: `Dicobain sama ${profile.displayName}(${profile.pictureUrl})\n\nHasil:\nx1: ${x1}\nx2: ${x2}\ncost: ${cost}`});
+    });
     return client.pushMessage(userId, {
       "type": "flex",
       "altText": "Menu Simulated Annealing",
@@ -212,6 +212,13 @@ var self = {
             {
               "type": "text",
               "text": "-|sin(x1)*cos(x2)*exp(|1-√(x1^2+x2^2)/π|)|",
+              "size": "xs",
+              "color": "#aaaaaa",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "\n-10 ≤ x1 ≤ 10 dan -10 ≤ x2 ≤ 10",
               "size": "xs",
               "color": "#aaaaaa",
               "wrap": true
