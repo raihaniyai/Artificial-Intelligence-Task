@@ -11,7 +11,7 @@ ID Line: @bxx4367b
 
 Untuk menjalankan program via Command Line Interface, clone project ini dan ikuti langkah-langkah pada README.md ini
 
-## Running the Program via CLI
+## Run the Program via CLI
 
 ### Prerequisites
 
@@ -69,7 +69,7 @@ var FR = -19.208450121;
 console.log("Akurasi: " + (1 - ((cost - FR)/FR)) * 100 + " %");
 ```
 
-## Running the Program via Line Bot
+## Run the Program via Line Bot
 
 ### Prerequisites
 
@@ -81,24 +81,27 @@ This message will shown after you add 'Tugas AI' on Line App
 You may choose which task that you wanna check.
 
 Tugas 1: Simulated Annealing
+
 Tugas 2: Soon
+
 Tugas 3: Soon
+
 Tugas 4: Soon
 
-<img src="https://github.com/raihaniyai/Artificial-Intelligence-Task/blob/master/image/greeting.jpg"  width="200">
+<img src="https://github.com/raihaniyai/Artificial-Intelligence-Task/blob/master/image/greeting.jpg"  width="250">
 
 ### Menu of Simulated Annealing
 
 After you choose Tugas 1, the bot will reply with flex message that show the Menu of Simulated Annealing.
 If you wanna start the program, just tap 'Start Simulated Annealing' and wait a second, at most 15 seconds.
 
-<img src="https://github.com/raihaniyai/Artificial-Intelligence-Task/blob/master/image/simulated.jpg"  width="200">
+<img src="https://github.com/raihaniyai/Artificial-Intelligence-Task/blob/master/image/simulated.jpg"  width="250">
 
 ### Result of Simulated Annealing
 
 After you wait a second, the bot will reply with flex message that show the Result of Simulated Annealing, and also the parameters of the function
 
-<img src="https://github.com/raihaniyai/Artificial-Intelligence-Task/blob/master/image/hasil.jpg"  width="200">
+<img src="https://github.com/raihaniyai/Artificial-Intelligence-Task/blob/master/image/hasil.jpg"  width="250">
 
 ## Built With
 
