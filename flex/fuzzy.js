@@ -231,7 +231,13 @@ var self = {
         flex
       ]);
     });
-    return client.pushMessage(userId, flex);
+    return client.pushMessage(userId, [
+      {
+        type: 'text',
+        text: `Ini kak hasil dari fuzzy logic dari DataTugas2.csv`
+      },
+      flex
+    ]);
   },
   kotak: function (nomor) {
     var flex = {
