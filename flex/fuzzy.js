@@ -221,7 +221,7 @@ var self = {
         count++;
       }
     }
-    Log kalau ada yang nyobain Fuzzy Logic nya, push message ke akun owner (iyai)
+    //Log kalau ada yang nyobain Fuzzy Logic nya, push message ke akun owner (iyai)
     client.getProfile(userId).then((profile) => {
       return client.pushMessage("U09d83d49fac35990146d381894d0d672", [
         {
