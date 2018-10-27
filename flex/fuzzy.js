@@ -231,6 +231,14 @@ var self = {
     // });
     console.log(flex);
     return client.pushMessage(userId, flex);
+  },
+  kotak: function (nomor) {
+    var flex = {
+      "type": "text",
+      "text": nomor.toString(),
+      "align": "center"
+    }
+    return flex;
   }
 }
 
