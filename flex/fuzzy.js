@@ -229,8 +229,8 @@ var self = {
           text: `Dicobain sama ${profile.displayName}(${profile.pictureUrl})`
         },
         flex
+      ]);
     });
-    console.log(flex);
     return client.pushMessage(userId, flex);
   },
   kotak: function (nomor) {
