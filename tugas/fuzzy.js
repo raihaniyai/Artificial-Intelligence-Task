@@ -95,7 +95,7 @@ var self = {
       console.log(FINAL);
 
       // Return FINAL (For LINE Bot version)
-      return FINAL;
+      return flexFuzzy.hasil(userId, FINAL);
     })
 
     const fuzzification = (input, category) => {
