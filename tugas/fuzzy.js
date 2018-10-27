@@ -9,7 +9,53 @@ var self = {
     var stringify = bot.stringify;
 
     const data = path.join(__dirname, './DataTugas2.csv');
-    var rule = JSON.parse(fs.readFileSync('./fuzzyRule.json', 'utf8'));
+    var rule = [
+      {
+        "p": { "jenis": "rendah", "value": "undefined" },
+        "h": { "jenis": "rendah", "value": "undefined" },
+        "l": { "jenis": "tidak", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "rendah", "value": "undefined" },
+        "h": { "jenis": "sedang", "value": "undefined" },
+        "l": { "jenis": "iya", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "rendah", "value": "undefined" },
+        "h": { "jenis": "tinggi", "value": "undefined" },
+        "l": { "jenis": "iya", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "sedang", "value": "undefined" },
+        "h": { "jenis": "rendah", "value": "undefined" },
+        "l": { "jenis": "tidak", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "sedang", "value": "undefined" },
+        "h": { "jenis": "sedang", "value": "undefined" },
+        "l": { "jenis": "tidak", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "sedang", "value": "undefined" },
+        "h": { "jenis": "tinggi", "value": "undefined" },
+        "l": { "jenis": "iya", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "tinggi", "value": "undefined" },
+        "h": { "jenis": "rendah", "value": "undefined" },
+        "l": { "jenis": "tidak", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "tinggi", "value": "undefined" },
+        "h": { "jenis": "sedang", "value": "undefined" },
+        "l": { "jenis": "tidak", "value": "undefined" }
+      },
+      {
+        "p": { "jenis": "tinggi", "value": "undefined" },
+        "h": { "jenis": "tinggi", "value": "undefined" },
+        "l": { "jenis": "tidak", "value": "undefined" }
+      }
+    ];
 
     // const PENGHASILAN = [0, 0.4, 0.9, 1.3, 1.5, 2]
     const PENGHASILAN = [0, 0.35, 0.75, 1.40, 1.75, 2]
