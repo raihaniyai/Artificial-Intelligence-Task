@@ -4,147 +4,151 @@ var self = {
   menu: function (replyToken) {
     var client = bot.client;
     return client.replyMessage(replyToken, {
-      "type": "bubble",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Fuzzy Logic",
-            "wrap": true,
-            "weight": "bold",
-            "gravity": "center",
-            "size": "xl"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Tugas",
-                    "color": "#aaaaaa",
-                    "size": "sm",
-                    "flex": 2
-                  },
-                  {
-                    "type": "text",
-                    "text": "Fuzzy Logic",
-                    "wrap": true,
-                    "size": "sm",
-                    "color": "#666666",
-                    "flex": 4
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Deadline",
-                    "color": "#aaaaaa",
-                    "size": "sm",
-                    "flex": 2
-                  },
-                  {
-                    "type": "text",
-                    "text": "Minggu 28 Oktober 2018, 21:00",
-                    "wrap": true,
-                    "size": "sm",
-                    "color": "#666666",
-                    "flex": 4
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Laporan",
-                    "color": "#aaaaaa",
-                    "size": "sm",
-                    "flex": 2
-                  },
-                  {
-                    "type": "text",
-                    "text": "Google Drive (Tugas AI)",
-                    "wrap": true,
-                    "action": {
-                      "type": "uri",
-                      "label": "Laporan",
-                      "uri": "https://drive.google.com/drive/folders/1mEXtDogBosDpxpBLy5oha2y8WyOIVPHR?usp=sharing"
+      "type": "flex",
+      "altText": "Menu Simulated Annealing",
+      "contents": {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Fuzzy Logic",
+              "wrap": true,
+              "weight": "bold",
+              "gravity": "center",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Tugas",
+                      "color": "#aaaaaa",
+                      "size": "sm",
+                      "flex": 2
                     },
-                    "color": "#338dff",
-                    "size": "sm",
-                    "flex": 4
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Source Code",
-                    "color": "#aaaaaa",
-                    "size": "sm",
-                    "flex": 2
-                  },
-                  {
-                    "type": "text",
-                    "text": "github.com/raihaniyai",
-                    "action": {
-                      "type": "uri",
-                      "label": "Source Code",
-                      "uri": "https://github.com/raihaniyai/Artificial-Intelligence-Task"
-                    },
-                    "wrap": true,
-                    "color": "#338dff",
-                    "size": "sm",
-                    "flex": 4
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "spacer",
-                "size": "xl"
-              },
-              {
-                "type": "button",
-                "action": {
-                  "type": "message",
-                  "label": "Start Fuzzy Logic",
-                  "text": "Start Fuzzy Logic"
+                    {
+                      "type": "text",
+                      "text": "Fuzzy Logic",
+                      "wrap": true,
+                      "size": "sm",
+                      "color": "#666666",
+                      "flex": 4
+                    }
+                  ]
                 },
-                "style": "primary",
-                "color": "#0000ff"
-              }
-            ]
-          }
-        ]
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Deadline",
+                      "color": "#aaaaaa",
+                      "size": "sm",
+                      "flex": 2
+                    },
+                    {
+                      "type": "text",
+                      "text": "Minggu 28 Oktober 2018, 21:00",
+                      "wrap": true,
+                      "size": "sm",
+                      "color": "#666666",
+                      "flex": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Laporan",
+                      "color": "#aaaaaa",
+                      "size": "sm",
+                      "flex": 2
+                    },
+                    {
+                      "type": "text",
+                      "text": "Google Drive (Tugas AI)",
+                      "wrap": true,
+                      "action": {
+                        "type": "uri",
+                        "label": "Laporan",
+                        "uri": "https://drive.google.com/drive/folders/1mEXtDogBosDpxpBLy5oha2y8WyOIVPHR?usp=sharing"
+                      },
+                      "color": "#338dff",
+                      "size": "sm",
+                      "flex": 4
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Source Code",
+                      "color": "#aaaaaa",
+                      "size": "sm",
+                      "flex": 2
+                    },
+                    {
+                      "type": "text",
+                      "text": "github.com/raihaniyai",
+                      "action": {
+                        "type": "uri",
+                        "label": "Source Code",
+                        "uri": "https://github.com/raihaniyai/Artificial-Intelligence-Task"
+                      },
+                      "wrap": true,
+                      "color": "#338dff",
+                      "size": "sm",
+                      "flex": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "spacer",
+                  "size": "xl"
+                },
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "message",
+                    "label": "Start Fuzzy Logic",
+                    "text": "Start Fuzzy Logic"
+                  },
+                  "style": "primary",
+                  "color": "#0000ff"
+                }
+              ]
+            }
+          ]
+        }
       }
     });
   },
