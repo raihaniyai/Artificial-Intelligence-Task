@@ -204,7 +204,7 @@ var self = {
         }
       }
     };
-    var start = 2;
+    var start = 1;
     var count = 0;
     for (var i = 0; i < 5; i++) {
       var boks = {
