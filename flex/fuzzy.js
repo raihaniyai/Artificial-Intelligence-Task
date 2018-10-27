@@ -188,7 +188,7 @@ var self = {
               "action": {
                 "type": "uri",
                 "label": "Unduh Hasil",
-                "uri": "https://linecorp.com"
+                "uri": "https://tugasai.herokuapp.com/problem/TebakanTugas2.csv"
               },
               "color": "#0000FF",
               "style": "primary"
@@ -196,10 +196,10 @@ var self = {
             {
               "type": "button",
               "action": {
-                "type": "uri",
+                "type": "message",
                 "label": "Menu Utama",
-                "uri": "https://linecorp.com"
-              }
+                "text": "/menu"
+              },
             }
           ]
         }
