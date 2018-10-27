@@ -188,7 +188,7 @@ var self = {
               "action": {
                 "type": "uri",
                 "label": "Unduh Hasil",
-                "uri": "https://tugasai.herokuapp.com/problem/TebakanTugas2.csv"
+                "uri": "https://tugasai.herokuapp.com/TebakanTugas2.csv"
               },
               "color": "#0000FF",
               "style": "primary"
