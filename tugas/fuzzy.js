@@ -3,10 +3,10 @@ const flexFuzzy = require('./../flex/fuzzy.js');
 
 var self = {
   hasil: function (userId) {
-      const csv=require('csvtojson')
-      const path = require('path');
-      const fs = require('fs');
-      const stringify = require('csv-stringify');
+    var csv = bot.csv;
+    var fs = bot.fs;
+    var path = bot.path;
+    var stringify = bot.stringify;
 
     const data = path.join(__dirname, './DataTugas2.csv');
     var rule = JSON.parse(fs.readFileSync('fuzzyRule.json', 'utf8'));
@@ -28,7 +28,9 @@ var self = {
           }
         });
       });
-      return ORDER;
+      // Result For Line Bot, Comment if you Running this program via CLI
+      console.log(ORDER);
+      return flexFuzzy.hasil(userId, ORDER);
     })
 
     const fuzzification = (input, category) => {
@@ -110,8 +112,6 @@ var self = {
     }
 
 
-    // Result For Line Bot, Comment if you Running this program via CLI
-    return flexSimulated.hasil(userId, eksSatu.toString(), eksDua.toString(), cost.toString());
 
     // Result Log for CLI version
     console.log("\nKonfigurasi\n");

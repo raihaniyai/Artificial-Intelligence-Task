@@ -2,6 +2,10 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+const csv=require('csvtojson')
+const path = require('path');
+const fs = require('fs');
+const stringify = require('csv-stringify');
 
 const flexSimulated = require('./flex/simulated.js');
 const flexFuzzy = require('./flex/fuzzy.js');
@@ -9,6 +13,11 @@ const flexFuzzy = require('./flex/fuzzy.js');
 const simulated = require('./tugas/simulated.js');
 const fuzzy = require('./tugas/fuzzy.js');
 require('dotenv').config();
+
+module.exports.csv = csv;
+module.exports.path = bot.path;
+module.exports.fs = fs;
+module.exports.stringify = stringify;
 
 // create LINE SDK config from env variables
 const config = {

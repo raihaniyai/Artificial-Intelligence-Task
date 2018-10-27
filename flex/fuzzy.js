@@ -229,6 +229,7 @@ var self = {
     //     },
     //     flex
     // });
+    console.log(flex);
     return client.pushMessage(userId, flex);
   }
 }

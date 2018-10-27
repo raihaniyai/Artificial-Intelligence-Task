@@ -11,8 +11,12 @@
   },
   "dependencies": {
     "@line/bot-sdk": "^6.3.0",
+    "csv-stringify": "^4.3.1",
+    "csvtojson": "^2.0.8",
     "dotenv": "^6.0.0",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
   },
   "author": "iyai",
   "license": "ISC"
