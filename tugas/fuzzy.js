@@ -82,9 +82,9 @@ var self = {
     }
 
     const proses = (Pendapatan, Hutang, expect) => {
-    	let Pendapatan = fuzzification(Pendapatan, PENGHASILAN)
-    	let Hutang = fuzzification(Hutang, HUTANG)
-    	let Inference = inference(Pendapatan, Hutang)
+    	let pendapatan = fuzzification(Pendapatan, PENGHASILAN)
+    	let hutang = fuzzification(Hutang, HUTANG)
+    	let Inference = inference(pendapatan, hutang)
     	let Defuzi = defuzzification(Inference)
 
       let hasil = (Defuzi['iya'] > Defuzi['tidak']) ? 'ya': 'tidak'
