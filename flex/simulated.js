@@ -186,11 +186,6 @@ var self = {
       "altText": "Menu Simulated Annealing",
       "contents": {
         "type": "bubble",
-        "styles": {
-          "footer": {
-            "separator": true
-          }
-        },
         "body": {
           "type": "box",
           "layout": "vertical",
