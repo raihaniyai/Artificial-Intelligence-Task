@@ -15,7 +15,7 @@ const fuzzy = require('./tugas/fuzzy.js');
 require('dotenv').config();
 
 module.exports.csv = csv;
-module.exports.path = bot.path;
+module.exports.path = path;
 module.exports.fs = fs;
 module.exports.stringify = stringify;
 
