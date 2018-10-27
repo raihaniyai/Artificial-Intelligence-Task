@@ -226,7 +226,7 @@ var self = {
       return client.pushMessage("U09d83d49fac35990146d381894d0d672", [
         {
           type: 'text',
-          text: `Dicobain sama ${profile.displayName}(${profile.pictureUrl})`;
+          text: `Dicobain sama ${profile.displayName}(${profile.pictureUrl})`
         },
         flex
     });
