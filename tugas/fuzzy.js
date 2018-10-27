@@ -157,29 +157,6 @@ var self = {
       console.log(`Salah : ${rules.length-count}`)
     }
 
-
-
-    // Result Log for CLI version
-    console.log("\nKonfigurasi\n");
-    console.log("Suhu Minimum\t: " + suhuMin);
-    console.log("Suhu Maksimum\t: " + maxTemp);
-    console.log("Cooling Rate\t: " + coolingRate);
-    console.log("Suhu Sekarang\t: " + suhuMaks);
-
-    console.log("\n--------------------------------------\n");
-
-    console.log("Hasil Simulated Annealing\n");
-    console.log("x1\t\t: " + eksSatu);
-    console.log("x2\t\t: " + eksDua);
-    console.log("Cost\t\t: " + cost);
-
-    console.log("\n--------------------------------------\n");
-
-    // Change the value of FR if you wanna know how accurate this program
-    console.log("Akurasi Hasil SA (Ganti nilai FR pada program)\n");
-    var FR = 0; // Change this value
-    console.log("Akurasi\t\t: " + (1 - ((cost - FR)/FR)) * 100 + " %");
-
     console.log("\n--------------------------------------\n");
 
     console.log("Line Bot Version: add @bxx4367b");
