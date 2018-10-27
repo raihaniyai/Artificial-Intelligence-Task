@@ -221,15 +221,15 @@ var self = {
         count++;
       }
     }
-    // Log kalau ada yang nyobain Fuzzy Logic nya, push message ke akun owner (iyai)
-    // client.getProfile(userId).then((profile) => {
-    //   return client.pushMessage("U09d83d49fac35990146d381894d0d672", [
-    //     {
-    //       type: 'text',
-    //       text: `Dicobain sama ${profile.displayName}(${profile.pictureUrl})`;
-    //     },
-    //     flex
-    // });
+    Log kalau ada yang nyobain Fuzzy Logic nya, push message ke akun owner (iyai)
+    client.getProfile(userId).then((profile) => {
+      return client.pushMessage("U09d83d49fac35990146d381894d0d672", [
+        {
+          type: 'text',
+          text: `Dicobain sama ${profile.displayName}(${profile.pictureUrl})`;
+        },
+        flex
+    });
     console.log(flex);
     return client.pushMessage(userId, flex);
   },
