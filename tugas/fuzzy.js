@@ -8,7 +8,7 @@ var self = {
     var path = bot.path;
     var stringify = bot.stringify;
 
-    const data = path.join(__dirname, './../problem/DataTugas2.csv');
+    const dataTugas2 = path.join(__dirname, './../problem/DataTugas2.csv');
     var rule = [
       {
         "p": { "jenis": "rendah", "value": "undefined" },
