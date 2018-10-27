@@ -2,8 +2,12 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+
 const flexSimulated = require('./flex/simulated.js');
+const flexFuzzy = require('./flex/fuzzy.js');
+
 const simulated = require('./tugas/simulated.js');
+const fuzzy = require('./tugas/fuzzy.js');
 require('dotenv').config();
 
 // create LINE SDK config from env variables
@@ -153,12 +157,17 @@ function handleText(message, replyToken, source) {
       return flexSimulated.menu(replyToken);
       break;
     case '/tugas2':
+      return flexFuzzy.menu(replyToken);
+      break;
     case '/tugas3':
     case '/tugas4':
       return replyText(replyToken, "Wah udah ga sabar ya kak? Aku belum dapet tugasnya nih..\nDitunggu aja ya kak :D");
       break;
     case 'Start Simulated Annealing':
       return simulated.hasil(source.userId);
+      break;
+    case 'Start Fuzzy Logic':
+      return fuzzy.hasil(source.userId);
       break;
     default:
       console.log(`Echo message to ${replyToken}: ${message.text}`);
