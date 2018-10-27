@@ -174,7 +174,8 @@ var self = {
             {
               "type": "text",
               "text": "Nomor Baris",
-              "align": "center"
+              "align": "center",
+              "weight": "bold"
             }
           ]
         },

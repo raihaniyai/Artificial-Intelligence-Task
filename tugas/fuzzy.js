@@ -57,26 +57,45 @@ var self = {
       }
     ];
 
-    // const PENGHASILAN = [0, 0.4, 0.9, 1.3, 1.5, 2]
-    const PENGHASILAN = [0, 0.35, 0.75, 1.40, 1.75, 2]
-    // const HUTANG = [0, 25, 40, 65, 70, 80]
-    const HUTANG = [0, 20, 36, 54, 70, 80]
+    const PENDAPATAN = [0, 0.5, 0.9, 1.3, 1.6, 2]
+    const HUTANG = [0, 20, 40, 55, 80, 100]
     const ORDER = []
+    const FINAL = []
 
-    csv().fromFile(data).then((tugas2)=>{
+    csv().fromFile(dataTugas2).then((tugas2)=>{
+      // Run main program
       main(tugas2)
-      stringify(ORDER, function(err, output) {
+
+      // Sort berdasarkan yang paling layak
+      ORDER.sort(function(a, b){
+          return b.hasil - a.hasil;
+      });
+
+      // Push hasil ke FINAL
+      for (var i = 0; i < 20; i++) {
+        FINAL.push({'No' : ORDER[i].No})
+      }
+
+      // Sort berdasarkan nomor, agar mudah terbaca (biar nilainya enak)
+      FINAL.sort(function(a, b){
+          return a.No - b.No;
+      });
+
+      // Save as CSV in the same path
+      stringify(FINAL, function(err, output) {
         fs.writeFile('TebakanTugas2.csv', output, 'utf8', function(err) {
           if (err) {
             console.log('Some error occured - file either not saved or corrupted file saved.');
           } else {
-            console.log('It\'s saved!');
+            console.log('File TebakanTugas2.csv berhasil disimpan kak :D');
           }
         });
       });
-      // Result For Line Bot, Comment if you Running this program via CLI
-      console.log(ORDER);
-      return flexFuzzy.hasil(userId, ORDER);
+
+      console.log(FINAL);
+
+      // Return FINAL (For LINE Bot version)
+      return FINAL;
     })
 
     const fuzzification = (input, category) => {
@@ -108,7 +127,6 @@ var self = {
     			count++
     		}
     	}
-      // console.log("INFERENCE: " + JSON.stringify(result) + "\n\n");
     	return result
     }
 
@@ -117,49 +135,36 @@ var self = {
     	const TIDAK = []
     	for (var i = 0; i < fuzzyset.length; i++) {
     		let layak = fuzzyset[i]['l']
-
     		layak['jenis'] === 'iya' ? IYA.push(layak['value']) : undefined
     		layak['jenis'] === 'tidak' ? TIDAK.push(layak['value']) : undefined
-
     	}
-    	// console.log({ IYA, TIDAK }
 
     	const iya = Math.max(...IYA)
     	const tidak = Math.max(...TIDAK)
       return { iya, tidak }
     }
 
-    const proses = (Pendapatan, Hutang, expect) => {
-    	let pendapatan = fuzzification(Pendapatan, PENGHASILAN)
-    	let hutang = fuzzification(Hutang, HUTANG)
-    	let Inference = inference(pendapatan, hutang)
-    	let Defuzi = defuzzification(Inference)
+    const proses = (Pendapatan, Hutang, final) => {
+      let pendapatan = fuzzification(Pendapatan, PENDAPATAN)
+      let hutang = fuzzification(Hutang, HUTANG)
+      let Inference = inference(pendapatan, hutang)
+      let Defuzzi = defuzzification(Inference)
 
-      let hasil = (Defuzi['iya'] > Defuzi['tidak']) ? 'ya': 'tidak'
-      // ORDER.push({'hasil': hasil, 'iya' : Defuzi['iya'], 'tidak' : Defuzi['tidak']})
-    	return (Defuzi['iya'] > Defuzi['tidak']) ? 'ya': 'tidak'
+      if (final) return (Defuzzi['iya'] > Defuzzi['tidak']) ? 'ya': 'tidak'
+      else return (Defuzzi['iya'] > Defuzzi['tidak']) ? Defuzzi['iya']: Defuzzi['tidak']
     }
 
-    const main = (rules) => {
+    const main = (data) => {
       let count = 0
       let iya = 0
-      for (var i = 0; i < rules.length; i++) {
-        const result = proses(rules[i]['Pendapatan'], rules[i]['Hutang'], rules[i]['layak'])
-        console.log(`No: ${i+1} - Pendapatan: ${rules[i].Pendapatan}, Hutang: ${rules[i].Hutang} = ${result}`)
+      for (var i = 0; i < data.length; i++) {
+        const result = proses(data[i]['Pendapatan'], data[i]['Hutang'], true)
         if (result == 'ya') {
-          ORDER.push({'No' : i+1});
+          hasil = proses(data[i]['Pendapatan'], data[i]['Hutang'], false)
+          ORDER.push({'No' : i+1, 'hasil' : hasil});
         }
-        result ? count++ : undefined
-        result === 'ya' ? iya++ : undefined
-        i === 19 ? console.log('------') : undefined
       }
-      console.log(`Yang Layak Menerima BLT : ${iya}`)
-      console.log(`Salah : ${rules.length-count}`)
     }
-
-    console.log("\n--------------------------------------\n");
-
-    console.log("Line Bot Version: add @bxx4367b");
   }
 }
 
