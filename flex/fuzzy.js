@@ -216,7 +216,7 @@ var self = {
       start++;
       for (var j = 0; j < 4; j++) {
         kotak = self.kotak(hasil[count].No);
-        flex.contents.body.contents[start].push(kotak);
+        flex.contents.body.contents[start].contents.push(kotak);
         count++;
       }
     }
