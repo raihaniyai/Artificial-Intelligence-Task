@@ -9,7 +9,7 @@ var self = {
     var stringify = bot.stringify;
 
     const data = path.join(__dirname, './DataTugas2.csv');
-    var rule = JSON.parse(fs.readFileSync('fuzzyRule.json', 'utf8'));
+    var rule = JSON.parse(fs.readFileSync('./fuzzyRule.json', 'utf8'));
 
     // const PENGHASILAN = [0, 0.4, 0.9, 1.3, 1.5, 2]
     const PENGHASILAN = [0, 0.35, 0.75, 1.40, 1.75, 2]
