@@ -140,4 +140,4 @@ var self = {
   }
 }
 
-module.exportsFuzzy
+module.exports = self;
